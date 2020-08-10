@@ -22,6 +22,6 @@ $(call inherit-product, vendor/omni/config/common.mk)
 
 PRODUCT_DEVICE := j7y17lte
 PRODUCT_NAME := omni_j7y17lte
-PRODUCT_MODEL := SM-J730F
+PRODUCT_MODEL := Samsung Galaxy J7 2017
 PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
