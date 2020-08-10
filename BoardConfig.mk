@@ -46,6 +46,9 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
+
+
 # TWRP specific build flags
 RECOVERY_VARIANT := twrp
 TW_THEME := portrait_hdpi
@@ -68,7 +71,7 @@ LZMA_RAMDISK_TARGETS := recovery
 
 #shrp
 SHRP_PATH := device/samsung/j7y17lte
-SHRP_MAINTAINER := bluedogerino
+SHRP_MAINTAINER := Marchetto94
 SHRP_DEVICE_CODE := j7y17lte
 SHRP_OFFICIAL := true
 SHRP_EXTERNAL := /external_sd
