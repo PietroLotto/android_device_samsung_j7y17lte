@@ -14,14 +14,6 @@
 # limitations under the License.
 #
 
-# Platform
-BOARD_VENDOR := samsung
-TARGET_BOARD_PLATFORM := exynos5
-TARGET_SOC := exynos7870
-TARGET_BOOTLOADER_BOARD_NAME := universal7870
-TARGET_NO_BOOTLOADER := true
-TARGET_NO_RADIOIMAGE := true
-
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -34,6 +26,14 @@ TARGET_2ND_ARCH_VARIANT := armv7-a-neon
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
+
+# Bootloader
+BOARD_VENDOR := samsung
+TARGET_BOARD_PLATFORM := exynos5
+TARGET_SOC := exynos7870
+TARGET_BOOTLOADER_BOARD_NAME := universal7870
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_RADIOIMAGE := true
 
 # Kernel
 TARGET_PREBUILT_KERNEL := device/samsung/j7y17lte/kernel
@@ -48,7 +48,6 @@ TARGET_USERIMAGES_USE_F2FS := true
 
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 
-
 # TWRP specific build flags
 RECOVERY_VARIANT := twrp
 TW_THEME := portrait_hdpi
@@ -59,6 +58,7 @@ TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 150
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
+TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_INCLUDE_NTFS_3G := true
 TW_NO_EXFAT_FUSE := true
 TW_EXTRA_LANGUAGES := true
@@ -69,23 +69,24 @@ RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_INCLUDE_CRYPTO := true
 LZMA_RAMDISK_TARGETS := recovery
 
-#shrp
+#shrp flags
 SHRP_PATH := device/samsung/j7y17lte
-SHRP_MAINTAINER := Marchetto94
 SHRP_DEVICE_CODE := j7y17lte
-SHRP_OFFICIAL := true
-SHRP_EXTERNAL := /external_sd
-SHRP_INTERNAL := /sdcard
+SHRP_MAINTAINER := Marchetto94
+SHRP_EDL_MODE=0
+SHRP_EXTERNAL="/sdcard1"
+SHRP_INTERNAL="/storage"
 SHRP_OTG := /usb_otg
-SHRP_AB := false
 SHRP_FLASH := 1
 SHRP_CUSTOM_FLASHLIGHT := true
 SHRP_FONP_1 := /sys/devices/virtual/camera/flash/rear_flash
-SHRP_FONP_2 := 
-SHRP_FONP_3 := 
-SHRP_FLASH_MAX_BRIGHTNESS := 1
+SHRP_FLASH_MAX_BRIGHTNESS := 255
 SHRP_REC := /dev/block/platform/13540000.dwmmc0/by-name/RECOVERY
+SHRP_AB := false
 SHRP_REC_TYPE := normal
 SHRP_DEVICE_TYPE := A_Only
+SHRP_STATUSBAR_RIGHT_PADDING=40
+SHRP_STATUSBAR_LEFT_PADDING=40
 SHRP_EXPRESS := true
 SHRP_OFFICIAL := true
+LZMA_RAMDISK_TARGETS="recovery"
